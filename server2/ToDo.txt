@@ -1,0 +1,27 @@
+// Continue from 1:00 hour ok!!!
+1.  [Done] Project File Structure
+2.  [Done] Project Package
+3.  [Done] Route Config
+4.  [Done] App.js Config
+5.  [Done] PostMan Initial Config
+6.  [Done] Email Credential Config
+7.  [Done] Token Encode Decode Credential Config
+8.  [Done] Write Model properties
+9.  [Done] Registration API
+10. [Done] Login API
+11. [Done] ProfileDetails API
+
+12. [Done] ProfileUpdate API
+
+13. EmailVerify API
+14. CodeVerify API
+15. ResetPassword API
+
+16. [Done] CreateTask API
+17. [Done] UpdateTaskStatus API
+18. [Done] TaskListByStatus API
+19. [Done] DeleteTask API
+20. [Done] CountTask API
+
+
+mongodb+srv://devtowhid:devtowhid486@cluster01.j4mr8.mongodb.net/TaskManager?retryWrites=true&w=majority
