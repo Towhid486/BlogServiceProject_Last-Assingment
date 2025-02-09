@@ -1,11 +1,10 @@
 import express from "express";
 const router = express.Router();
-import * as UsersController from "../app/controllers/UsersController.js";
-import AuthMiddleware from "../app/middlewares/AuthMiddleware.js"
-import * as TeamController from "../app/controllers/TeamController.js";
-import * as ServiceController from "../app/controllers/ServiceController.js";
-import * as BlogController from "../app/controllers/BlogController.js";
-import {TeamDetails} from "../app/controllers/TeamController.js";
+import * as UsersController from "../controllers/UsersController.js";
+import AuthMiddleware from "../middlewares/AuthMiddleware.js"
+import * as TeamController from "../controllers/TeamController.js";
+import * as ServiceController from "../controllers/ServiceController.js";
+import * as BlogController from "../controllers/BlogController.js";
 
 //Users
 router.post("/Login",UsersController.Login)
