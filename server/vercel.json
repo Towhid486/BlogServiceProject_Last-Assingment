@@ -3,9 +3,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "app.js",
       "use": "@vercel/node",
-      "config": { "distDir": "client/dist" }
+      "config": { "distDir": "../client/dist" }
     },
     {
       "src": "src/**/*",
