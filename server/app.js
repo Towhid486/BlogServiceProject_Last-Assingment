@@ -57,10 +57,12 @@ app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
 })
 
+
+//----Connect With React Frontend
 //Add React Frontend initial Directory
 app.use(express.static('../client/dist'))
 
-// Add React Front End Routing
+// Add React Front End Routing (If needed)
 app.get('*',function (req,res) {
     res.sendFile(path.resolve(__dirname,'..','client','dist','index.html'))
 })
