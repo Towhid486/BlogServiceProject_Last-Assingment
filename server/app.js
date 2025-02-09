@@ -5,8 +5,8 @@ import rateLimit from 'express-rate-limit';
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import hpp from "hpp";
-import {DATABASE,PORT,MAX_JSON_SIZE,URL_ENCODED,WEB_CACHE,REQUEST_LIMIT_NUMBER,REQUEST_LIMIT_TIME} from "./config/config.js"
-import router from "./routes/api.js"
+import {DATABASE,PORT,MAX_JSON_SIZE,URL_ENCODED,WEB_CACHE,REQUEST_LIMIT_NUMBER,REQUEST_LIMIT_TIME} from "./src/config/config.js"
+import router from "./src/routes/api.js"
 import bodyParser from 'body-parser';
 import * as path from "path";
 const app = express();
@@ -58,7 +58,7 @@ app.listen(PORT, () => {
 })
 
 //Add React Frontend initial Directory
-app.use(express.static('./client/dist'))
+app.use(express.static('../client/dist'))
 
 // Add React Front End Routing
 app.get('*',function (req,res) {
