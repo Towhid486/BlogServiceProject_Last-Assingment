@@ -31,8 +31,6 @@ app.use(
 app.use(cookieParser())
 app.use(bodyParser.json());
 
-
-
 // Rate Limiter
 const limiter=rateLimit({windowMs:REQUEST_LIMIT_TIME,max:REQUEST_LIMIT_NUMBER})
 app.use(limiter)
@@ -57,6 +55,12 @@ app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
 })
 
+// Vercel connection
+
+app.get('/', (req, res) => {
+    res.send('Hello, Vercel!');
+  });
+  
 
 //----Connect With React Frontend
 //Add React Frontend initial Directory

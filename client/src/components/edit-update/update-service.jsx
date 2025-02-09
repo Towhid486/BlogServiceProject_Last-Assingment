@@ -34,7 +34,7 @@ const UpdateService = () => {
                             </div>
                             <div className="sofax-main-field">
                                 <label className="form-label">Photo</label>
-                                <input value={ServiceFormData?.img} onChange={(e)=>ServiceFormOnChange('img',e.target.value)} type="text" placeholder="Photo"/>
+                                <input value={ServiceFormData?.img} onChange={(e)=>ServiceFormOnChange('img',e.target.value)} type="text" placeholder="Photo url"/>
                             </div>
                             <div className="sofax-main-field">
                                 <label className="form-label">Description</label>

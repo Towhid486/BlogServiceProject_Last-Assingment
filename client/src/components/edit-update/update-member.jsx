@@ -34,7 +34,7 @@ const UpdateMember = () => {
                             </div>
                             <div className="sofax-main-field">
                                 <label className="form-label">Photo</label>
-                                <input value={MemberFormData.img} onChange={(e)=>MemberFormOnChange('img',e.target.value)} type="text" placeholder="Photo"/>
+                                <input value={MemberFormData.img} onChange={(e)=>MemberFormOnChange('img',e.target.value)} type="text" placeholder="Photo url"/>
                             </div>
                             <div className="sofax-main-field">
                                 <label className="form-label">Animation ClassName</label> <p>Add this<strong> "sofax-team-member-aboutus"</strong> value on form</p>

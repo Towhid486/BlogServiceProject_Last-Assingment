@@ -36,7 +36,7 @@ const AddNewBlog = () => {
                             </div>
                             <div className="sofax-main-field">
                                 <label className="form-label">Photo</label>
-                                <input onChange={(e)=>BlogFormOnChange('img',e.target.value)} type="text" placeholder="Photo"/>
+                                <input onChange={(e)=>BlogFormOnChange('img',e.target.value)} type="text" placeholder="Photo url"/>
                             </div>
                             <div className="sofax-main-field">
                                 <label className="form-label">Description</label>
