@@ -12,13 +12,11 @@ import  path from "path";
 const app = express();
 
 // Global Application Middleware
-app.use(
-    cors({
-      origin: "https://blog-service-project-last-assingment.vercel.app/", // Replace with your frontend URL
-      methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-      credentials: true, // If you're using cookies/authentication
-  })
-  );
+app.use(cors({
+    origin: ["http://localhost:8080"], // React frontend
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
