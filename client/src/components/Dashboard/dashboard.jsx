@@ -135,6 +135,7 @@ function Dashboard() {
                                     MemberList?.map((member, index) => (
                                             <li className="d-flex my-4" key={index}>
                                                 <div className="col-5 d-flex">
+                                                    {/* <img style={{width:"50px",height:"50px"}} src={`http://localhost:8080/uploaded-file/${member.img}`}/> */}
                                                     <img style={{width:"50px",height:"50px"}} src={member.img}/>
                                                     <h6 className="ps-2">{member.name}</h6>
                                                 </div>

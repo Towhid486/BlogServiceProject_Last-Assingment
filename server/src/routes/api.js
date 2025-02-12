@@ -5,12 +5,21 @@ import AuthMiddleware from "../middlewares/AuthMiddleware.js"
 import * as TeamController from "../controllers/TeamController.js";
 import * as ServiceController from "../controllers/ServiceController.js";
 import * as BlogController from "../controllers/BlogController.js";
+import * as FileUploaderController from "../controllers/FileUploaderController.js";
+import upload from "../middlewares/FileUpload.js"
+
 
 //Users
 router.post("/Login",UsersController.Login)
 router.get("/UserLogout",AuthMiddleware,UsersController.UserLogout)
 
 
+// File Upload API
+router.post(
+    "/file-upload",
+    upload.array("file",20),
+    FileUploaderController.fileUpload
+)
 
 //Team Member
 router.get("/TeamList",TeamController.TeamList)

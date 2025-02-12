@@ -2,10 +2,11 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import ValidationHelper from '../../utility/ValidationHelper';
 import TeamStore from '../../store/TeamStore';
+import ImgUploadStore from '../../store/ImgUploadStore';
 
 const UpdateMember = () => {
     const {MemberDetail,MemberFormData,MemberFormOnChange,UpdateMemberRequest} = TeamStore()
-
+    // const {FileUploadRequest} = ImgUploadStore();
     const Update = async (id)=>{
         if(ValidationHelper.IsEmpty(MemberFormData.name)){
             toast.error("Name Required")
@@ -20,6 +21,23 @@ const UpdateMember = () => {
             res?toast.success("Member Info Updated") : toast.error("Something Went Wrong !")
         }
     }
+
+    // const file = (MemberFormData.img);
+    // console.log(MemberFormData)
+
+    // let Upload = async (e)=>{
+    //     e.preventDefault();
+    //     if(!file){
+    //         toast.error("Please select a file")
+    //     }
+    //     const formData = new FormData()
+    //     formData.append("file",file)
+    //     const result = await FileUploadRequest(formData);
+    //     if (result.file && result.file[0]?.filename) {
+    //         MemberFormOnChange("img", result.file[0].filename) // Updates only `img`
+    //         // console.log("Updated MemberFormData:", MemberFormData);
+    //     }       
+    // }
     return (
         <section className="sofax-section-padding2">
             <div className="container">
@@ -32,10 +50,26 @@ const UpdateMember = () => {
                                 <label>Member Name </label>
                                 <textarea value={MemberFormData?.name} onChange={(e)=>MemberFormOnChange('name',e.target.value)} rows={2} placeholder="Title"/>
                             </div>
+
                             <div className="sofax-main-field">
                                 <label className="form-label">Photo</label>
-                                <input value={MemberFormData.img} onChange={(e)=>MemberFormOnChange('img',e.target.value)} type="text" placeholder="Photo url"/>
+                                <div className="col-12 d-flex align-items-center">
+                                    <input className='no-border'
+                                        // name={"file"} 
+                                        onChange={(e)=>MemberFormOnChange('img',e.target.value)}
+                                        // onChange={(e)=>MemberFormOnChange('img',e.target.files[0])}
+                                        type="text" 
+                                        placeholder='Image Url'
+                                        // accept='image/*'
+                                    />
+                                    {/* <button className="ms-3 btn bg-warning" onClick={Upload} type='submit'>Upload</button> */}
+                                </div>        
+
+                                    {/* <img style={{ width: "100px", height: "100px" }} src={`http://localhost:8080/uploaded-file/${MemberFormData?.img}`} alt="" /> */}
+                                    <img style={{ width: "100px", height: "100px" }} src={MemberFormData?.img} alt="" />
+
                             </div>
+                            
                             <div className="sofax-main-field">
                                 <label className="form-label">Animation ClassName</label> <p>Add this<strong> "sofax-team-member-aboutus"</strong> value on form</p>
                                 <input value={MemberFormData.className} onChange={(e)=>MemberFormOnChange('className',e.target.value)} type="text" placeholder="CSS Class"/>

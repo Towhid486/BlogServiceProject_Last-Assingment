@@ -8,18 +8,21 @@ import hpp from "hpp";
 import {DATABASE,PORT,MAX_JSON_SIZE,URL_ENCODED,WEB_CACHE,REQUEST_LIMIT_NUMBER,REQUEST_LIMIT_TIME} from "./src/config/config.js"
 import router from "./src/routes/api.js"
 import bodyParser from 'body-parser';
-import * as path from "path";
+import  path from "path";
 const app = express();
-
 
 // Global Application Middleware
 app.use(cors({
-    origin:[""]
-}));
-app.use(express.json({limit: MAX_JSON_SIZE}));
+    origin: ["http://localhost:8080"], // React frontend
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
-// app.use(helmet())
+
+// app.use(helmet({
+//     crossOriginResourcePolicy:false,
+// }));
 app.use(
     helmet.contentSecurityPolicy({
         useDefaults:true,
@@ -50,16 +53,12 @@ mongoose.connect(DATABASE,{autoIndex:true}).then(()=>{
 // Set API Routes
 app.use("/api",router)
 
+app.use("/uploaded-file", express.static("uploads"))
 // Run Your Express Back End Project
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
 })
 
-// Vercel connection
-
-app.get('/', (req, res) => {
-    res.send('Hello, Vercel!');
-  });
   
 
 //----Connect With React Frontend
@@ -70,5 +69,4 @@ app.use(express.static('../client/dist'))
 app.get('*',function (req,res) {
     res.sendFile(path.resolve(__dirname,'..','client','dist','index.html'))
 })
-
 

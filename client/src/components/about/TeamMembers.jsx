@@ -30,7 +30,7 @@ const TeamMembers = () => {
 								<FadeInStagger  key={index}  index={index} className="col-lg-3 col-md-6">
 									<div className={`sofax-team-member-wrap ${item.className} `}>
 										<FadeInUp className="sofax-team-member-img">
-											<img src={item?.img} alt="team member" />
+											<img src={`http://localhost:8080/uploaded-file/${item?.img}`} alt="team member" />
 										</FadeInUp>
 										<div className="sofax-team-member-content">
 											<h4>{item?.name}</h4>
