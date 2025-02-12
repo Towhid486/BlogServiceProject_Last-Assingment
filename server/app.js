@@ -13,7 +13,7 @@ const app = express();
 
 // Global Application Middleware
 app.use(cors({
-    origin: ["http://localhost:8080"], // React frontend
+    origin: ["https://blog-service-project-last-assingment-eax3.vercel.app"], // React frontend
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
 }));app.use(express.json({limit: MAX_JSON_SIZE}));
