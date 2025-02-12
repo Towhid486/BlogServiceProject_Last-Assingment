@@ -14,7 +14,7 @@ const app = express();
 // Global Application Middleware
 app.use(
     cors({
-      origin: "https://your-frontend-url.com", // Replace with your frontend URL
+      origin: "https://blog-service-project-last-assingment.vercel.app/", // Replace with your frontend URL
       methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
       credentials: true, // If you're using cookies/authentication
   })
