@@ -8,8 +8,7 @@ export default defineConfig({
     proxy:{
       '/api':{
         target:"https://blog-service-project-last-assingment-eax3.vercel.app",
-        changeOrigin:true,
-        secure:false,
+
       }
     }
   }

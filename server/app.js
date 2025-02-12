@@ -16,8 +16,7 @@ app.use(cors({
     origin: ["http://localhost:8080"], // React frontend
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
-}));
-app.use(express.json({limit: MAX_JSON_SIZE}));
+}));app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
 
