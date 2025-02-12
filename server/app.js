@@ -13,10 +13,11 @@ const app = express();
 
 // Global Application Middleware
 app.use(cors({
-    origin: ["http://localhost:8080"], // React frontend
+    origin: ["https://blog-service-project-last-assingment-eax3.vercel.app"], // React frontend
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
-}));app.use(express.json({limit: MAX_JSON_SIZE}));
+}));
+app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
 
@@ -55,9 +56,9 @@ app.use("/api",router)
 
 app.use("/uploaded-file", express.static("uploads"))
 // Run Your Express Back End Project
-app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}`);
-})
+// app.listen(PORT, () => {
+//     console.log(`App running on port ${PORT}`);
+// })
 
   
 
