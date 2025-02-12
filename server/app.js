@@ -12,7 +12,11 @@ import  path from "path";
 const app = express();
 
 // Global Application Middleware
-app.use(cors());
+app.use(cors(
+    {
+    origin: ["https://blog-service-project-last-assingment.vercel.app/"],
+    }
+))
 app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
