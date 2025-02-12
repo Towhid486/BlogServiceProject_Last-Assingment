@@ -7,8 +7,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:"https://blog-service-project-last-assingment-eax3.vercel.app",
-
+        target:"http://localhost:8080"
       }
     }
   }
