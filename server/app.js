@@ -13,7 +13,7 @@ const app = express();
 
 // Global Application Middleware
 app.use(cors({
-    origin: ["https://blog-service-project-last-assingment-eax3.vercel.app"], // React frontend
+    origin: ["https://blog-service-project-last-assingment.vercel.app/"], // React frontend
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
 }));
@@ -21,9 +21,6 @@ app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
 
-// app.use(helmet({
-//     crossOriginResourcePolicy:false,
-// }));
 app.use(
     helmet.contentSecurityPolicy({
         useDefaults:true,
@@ -50,17 +47,14 @@ mongoose.connect(DATABASE,{autoIndex:true}).then(()=>{
     console.log(err);
 })
 
-
 // Set API Routes
 app.use("/api",router)
 
 app.use("/uploaded-file", express.static("uploads"))
 // Run Your Express Back End Project
-// app.listen(PORT, () => {
-//     console.log(`App running on port ${PORT}`);
-// })
-
-  
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`);
+})
 
 //----Connect With React Frontend
 //Add React Frontend initial Directory
