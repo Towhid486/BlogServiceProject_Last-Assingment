@@ -1,13 +1,13 @@
 import axios from "axios";
 import { create } from "zustand";
-
+import base from './BaseURL'
 const BlogStore = create((set)=>({
 
     BlogList: null,
     BlogCount:0,
     BlogListRequest: async()=>{
         set({BlogList: null})
-        let res = await axios.get("/api/BlogList");
+        let res = await axios.get(`${base}/api/BlogList`);
         if(res.data['status'] === "success"){
             set({BlogList:res.data['data']})
             set({BlogCount:res.data['data'].length})
@@ -17,7 +17,7 @@ const BlogStore = create((set)=>({
     BlogDetail: null,
     BlogDetailsRequest: async(id)=>{
         set({BlogDetail:null})
-        let res = await axios.get(`/api/BlogDetails/${id}`);
+        let res = await axios.get(`${base}/api/BlogDetails/${id}`);
         set({BlogDetail:res.data['data']})
         set({BlogFormData:res.data['data']})
     },
@@ -36,7 +36,7 @@ const BlogStore = create((set)=>({
 
     AddBlogRequest:async(PostBody)=>{
         try{
-            let res = await axios.post('/api/CreateBlog',PostBody)
+            let res = await axios.post(`${base}/api/CreateBlog`,PostBody)
             set({BlogFormData:null})
             return res.data['status']==="success"
         }catch(e){
@@ -56,7 +56,7 @@ const BlogStore = create((set)=>({
     RemoveBlogRequest:async(id)=>{
         try{
             set({BlogList:null})
-            await axios.get(`/api/DeleteBlog/${id}`);
+            await axios.get(`${base}/api/DeleteBlog/${id}`);
         }catch(e){
             unauthorized(e)
         }

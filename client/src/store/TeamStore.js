@@ -2,6 +2,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
 import { unauthorized } from './../utility/utility';
+import base from "./BaseURL";
 
 const TeamStore = create((set)=>({
 
@@ -9,7 +10,7 @@ const TeamStore = create((set)=>({
     MemberCount: 0,
     MemberListRequest: async()=>{
         set({MemberList: null})
-        let res = await axios.get("/api/TeamList");
+        let res = await axios.get(`${base}/api/TeamList`);
         if(res.data['status'] === "success"){
             set({MemberList:res.data['data']})
             set({MemberCount:res.data['data'].length})
@@ -30,7 +31,7 @@ const TeamStore = create((set)=>({
 
     AddMemberRequest:async(PostBody)=>{
         try{
-            let res = await axios.post('/api/CreateMember',PostBody)
+            let res = await axios.post(`${base}/api/CreateMember`,PostBody)
             set({MemberList:null})
             return res.data['status']==="success"
         }catch(e){
@@ -41,13 +42,13 @@ const TeamStore = create((set)=>({
     MemberDetail: null,
     MemberDetailsRequest: async(id)=>{
         set({MemberDetail:null})
-        let res = await axios.get(`/api/MemberDetails/${id}`);
+        let res = await axios.get(`${base}/api/MemberDetails/${id}`);
         set({MemberDetail:res.data['data']})
         set({MemberFormData:res.data['data']})
     },
     UpdateMemberRequest:async(id,PostBody)=>{
         try{
-            let res = await axios.post(`/api/UpdateMember/${id}`, PostBody)
+            let res = await axios.post(`${base}/api/UpdateMember/${id}`, PostBody)
             return res.data['status']==="success"
         }catch(e){
             unauthorized(e)
@@ -57,7 +58,7 @@ const TeamStore = create((set)=>({
     RemoveMemberRequest:async(id)=>{
         try{
             set({MemberList:null})
-            await axios.get(`/api/DeleteMember/${id}`);
+            await axios.get(`${base}/api/DeleteMember/${id}`);
         }catch(e){
             unauthorized(e)
         }

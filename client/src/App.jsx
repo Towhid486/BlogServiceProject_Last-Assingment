@@ -11,7 +11,6 @@ import DashboardPage from "./pages/dashboard-page";
 import AddNewMemberPage from './pages/add-new-member-page';
 import AddNewServicePage from "./pages/add-new-service-page";
 import AddNewBlogPage from "./pages/add-new-blog-page";
-import UpdateBlog from "./components/edit-update/update-blog";
 import UpdateBlogPage from "./pages/update-blog-page";
 import UpdateServicePage from "./pages/update-service-page";
 import UpdateMemberPage from "./pages/update-member-page";

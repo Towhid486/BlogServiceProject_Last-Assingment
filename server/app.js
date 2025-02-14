@@ -11,11 +11,15 @@ import bodyParser from 'body-parser';
 import *as path from "path";
 const app = express();
 
+
+
 // Global Application Middleware
+app.use(cors());
 app.use(cors({
-    origin: ["https://blog-service-project-last-assingment.vercel.app/"], // React frontend
+    origin: ["https://blog-service-project-last-assingment.vercel.app"], // React frontend
     methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"]
+    allowedHeaders: ["Content-Type"],
+    credentials:true,
 }));
 app.use(express.json({limit: MAX_JSON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));

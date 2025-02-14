@@ -1,5 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
+import base from "./BaseURL";
 
 const ServiceStore = create((set)=>({
 
@@ -7,7 +8,7 @@ const ServiceStore = create((set)=>({
     ServiceCount:0,
     ServiceListRequest: async()=>{
         set({ServiceList: null})
-        let res = await axios.get("/api/ServiceList");
+        let res = await axios.get(`${base}/api/ServiceList`);
         if(res.data['status'] === "success"){
             set({ServiceList:res.data['data']})
             set({ServiceCount:res.data['data'].length})
@@ -28,7 +29,7 @@ const ServiceStore = create((set)=>({
 
     AddServiceRequest:async(PostBody)=>{
         try{
-            let res = await axios.post('/api/CreateService',PostBody)
+            let res = await axios.post(`${base}/api/CreateService`,PostBody)
             set({ServiceFormData:null})
             return res.data['status']==="success"
         }catch(e){
@@ -39,13 +40,13 @@ const ServiceStore = create((set)=>({
     ServiceDetail: null,
     ServiceDetailsRequest: async(id)=>{
         set({ServiceDetail:null})
-        let res = await axios.get(`/api/ServiceDetails/${id}`);
+        let res = await axios.get(`${base}/api/ServiceDetails/${id}`);
         set({ServiceDetail:res.data['data']})
         set({ServiceFormData:res.data['data']})
     },
     UpdateServiceRequest:async(id,PostBody)=>{
         try{
-            let res = await axios.post(`/api/UpdateService/${id}`, PostBody)
+            let res = await axios.post(`${base}/api/UpdateService/${id}`, PostBody)
             return res.data['status']==="success"
         }catch(e){
             unauthorized(e)
@@ -55,7 +56,7 @@ const ServiceStore = create((set)=>({
     RemoveServiceRequest:async(id)=>{
         try{
             set({ServiceList:null})
-            await axios.get(`/api/DeleteService/${id}`);
+            await axios.get(`${base}/api/DeleteService/${id}`);
         }catch(e){
             unauthorized(e)
         }
