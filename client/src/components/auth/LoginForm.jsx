@@ -35,9 +35,9 @@ const LoginForm = ()=> {
 							<div className="sofax-main-field sofax-subscription-field-inner">
 									<input onChange={(e)=>{LoginFormOnChange('password',e.target.value)}} type="password" name="password" id="password" placeholder="Enter password" className="form-control"/>
 							</div>
-							<div className="sofax-form-box forgot-password">
-								<Link to="#">test@nomail.com & 1234</Link>
-							</div>
+							{/*<div className="sofax-form-box forgot-password">*/}
+							{/*	<Link to="#">test@nomail.com & 1234</Link>*/}
+							{/*</div>*/}
 							<button onClick={onFormSubmit} className="sofax-subcribe-btn2" type="submit">Login</button>
 						{/* </form> */}
 					</div>
