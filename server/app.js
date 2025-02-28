@@ -11,7 +11,11 @@ import bodyParser from 'body-parser';
 import path from "path";
 const app = express();
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Global Application Middleware
 app.use(cors());
@@ -61,11 +65,11 @@ app.listen(PORT, () => {
 
 //----Connect With React Frontend
 //Add React Frontend initial Directory
-app.use(express.static('client/dist'))
+app.use(express.static(path.join(__dirname,'../client/dist')))
 
 // Add React Front End Routing
 app.get('*',function (req,res) {
-    res.sendFile(path.resolve(__dirname,'client','dist','index.html'))
+    res.sendFile(path.resolve(__dirname,'..', 'client','dist','index.html'))
 })
 
 

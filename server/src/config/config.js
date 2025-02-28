@@ -1,4 +1,4 @@
-export const PORT=8080;
+export const PORT=2080;
 export const DATABASE="mongodb+srv://devtowhid:devtowhid486@cluster01.j4mr8.mongodb.net/BlogServicesProject?retryWrites=true&w=majority";
 
 export const JWT_SECRET = "5EC7CEFA1BE7C9354A639369A2AA8";
