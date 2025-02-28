@@ -2,7 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import ValidationHelper from '../../utility/ValidationHelper';
 import TeamStore from '../../store/TeamStore';
-import ImgUploadStore from '../../store/ImgUploadStore';
+// import ImgUploadStore from '../../store/ImgUploadStore';
 
 const UpdateMember = () => {
     const {MemberDetail,MemberFormData,MemberFormOnChange,UpdateMemberRequest} = TeamStore()
@@ -48,13 +48,13 @@ const UpdateMember = () => {
                     <div className="col-lg-5 text-start sofax-field-box bg-light-subtle">
                             <div className="sofax-main-field">
                                 <label>Member Name </label>
-                                <textarea value={MemberFormData?.name} onChange={(e)=>MemberFormOnChange('name',e.target.value)} rows={2} placeholder="Title"/>
+                                <input value={MemberFormData?.name} onChange={(e)=>MemberFormOnChange('name',e.target.value)}  placeholder="Name"/>
                             </div>
 
                             <div className="sofax-main-field">
                                 <label className="form-label">Photo</label>
                                 <div className="col-12 d-flex align-items-center">
-                                    <input className='no-border'
+                                    <input value={MemberFormData?.img}
                                         // name={"file"} 
                                         onChange={(e)=>MemberFormOnChange('img',e.target.value)}
                                         // onChange={(e)=>MemberFormOnChange('img',e.target.files[0])}
@@ -71,7 +71,7 @@ const UpdateMember = () => {
                             </div>
                             
                             <div className="sofax-main-field">
-                                <label className="form-label">Animation ClassName</label> <p>Add this<strong> "sofax-team-member-aboutus"</strong> value on form</p>
+                                <label className="form-label">Animation ClassName</label> <p>Add this<strong> sofax-team-member-aboutus </strong> value on form</p>
                                 <input value={MemberFormData.className} onChange={(e)=>MemberFormOnChange('className',e.target.value)} type="text" placeholder="CSS Class"/>
                             </div>
                             <div className="sofax-main-field">

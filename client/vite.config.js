@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:"https://blog-service-project-last-assingment-eax3.vercel.app",
+        target:"https://portfolio-towhid.onrender.com/",
         changeOrigin:true,
         secure:false
       }

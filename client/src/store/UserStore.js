@@ -2,7 +2,6 @@ import axios  from "axios";
 import {setEmail, unauthorized} from "../utility/utility.js";
 import Cookies from "js-cookie";
 import { create } from "zustand";
-import base from "./BaseURL.js";
 const UserStore=create((set)=>({
 
     isLogin:()=>{
@@ -21,7 +20,7 @@ const UserStore=create((set)=>({
 
     LoginRequest:async(postBody)=>{
         try{
-            let res=await axios.post(`${base}/api/Login`,postBody);
+            let res=await axios.post(`/api/Login`,postBody);
             setEmail(email);
             return res.data['status'] === "success";
         }catch (e) {
@@ -31,7 +30,7 @@ const UserStore=create((set)=>({
 
 
     UserLogoutRequest:async()=>{
-        let res=await axios.get(`${base}/api/UserLogout`);
+        let res=await axios.get(`/api/UserLogout`);
         return res.data['status'] === "success";
     },
 

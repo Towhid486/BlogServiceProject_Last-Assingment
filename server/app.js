@@ -8,7 +8,7 @@ import hpp from "hpp";
 import {DATABASE,PORT,MAX_JSON_SIZE,URL_ENCODED,WEB_CACHE,REQUEST_LIMIT_NUMBER,REQUEST_LIMIT_TIME} from "./src/config/config.js"
 import router from "./src/routes/api.js"
 import bodyParser from 'body-parser';
-import *as path from "path";
+import path from "path";
 const app = express();
 
 
@@ -16,9 +16,8 @@ const app = express();
 // Global Application Middleware
 app.use(cors());
 app.use(cors({
-    origin: ["https://blog-service-project-last-assingment.vercel.app"], // React frontend
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
+    origin: "https://portfolio-towhid.onrender.com/", // React frontend
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials:true,
 }));
 app.use(express.json({limit: MAX_JSON_SIZE}));
@@ -62,11 +61,11 @@ app.listen(PORT, () => {
 
 //----Connect With React Frontend
 //Add React Frontend initial Directory
-app.use(express.static('../client/dist'))
+app.use(express.static('client/dist'))
 
-// Add React Front End Routing (If needed)
+// Add React Front End Routing
 app.get('*',function (req,res) {
-    res.sendFile(path.resolve(__dirname,'..','client','dist','index.html'))
+    res.sendFile(path.resolve(__dirname,'client','dist','index.html'))
 })
 
 
