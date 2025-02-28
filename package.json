@@ -4,6 +4,7 @@
   "description": "",
   "main": "server/app.js",
   "type": "module",
+  "start": "nodemon server/app.js",
   "scripts": {
     "start": "nodemon server/app.js",
     "dev": "nodemon server/app.js",
